@@ -1,23 +1,64 @@
-# Autoclicker
+# 🖱️ Autoclicker
 
-This repository contains several versions of a Python-based autoclicker. These scripts simulate mouse clicks automatically, useful for repetitive tasks or testing.
+Welcome to **Autoclicker**, a collection of Python scripts that simulate mouse clicks automatically 🖱️⚡. Perfect for automating repetitive tasks or testing interfaces.
 
-## Available Versions
+---
 
-- **Autoclicker.py**: First basic version.
-- **autoclicker1.1.py**: Improved version with better timing or functionality.
-- **autoclicker_coockye.py**: Experimental or alternative implementation.
+## 📁 Versions Included
 
-## Features
+| File Name                  | Description                            | Status     |
+|---------------------------|----------------------------------------|------------|
+| `Autoclicker.py`          | 🟢 Basic initial version                | ✅ Stable  |
+| `autoclicker1.1.py`       | ⚙️ Improved version with better control | 🚧 Work in progress |
+| `autoclicker_coockye.py`  | 🧪 Experimental or alternative approach | 🧪 Testing |
 
-- Simple to use.
-- Fully written in Python.
-- Constant improvements with each version.
-- Source code available for customization.
+---
 
-## Requirements
+## ✨ Features
 
-Make sure you have Python installed and the following libraries (if not already available):
+- ✅ Easy to use
+- 🐍 100% Python
+- ⌛ Time-saving for repetitive tasks
+- 🛠️ Open source and customizable
+- 🔁 Multiple versions to choose from
+  
+---
+
+
+## 🛠️ Future Plans
+
+I'm actively improving this project! 🧠🧪  
+Upcoming features may include:
+
+- 🎛️ GUI with buttons
+- 🧠 Smarter clicking patterns
+- 🧩 Modular version system
+- 🌐 Multi-platform support
+- 🔒 Safe mode to avoid misclicks
+
+Stay tuned for updates! 🚀
+
+---
+
+## 🙋‍♂️ About the Author
+
+Made with 💻 and curiosity by **Pablo152005**  
+I'm a Computer Science student passionate about automation and learning by building cool stuff.
+
+Feel free to:
+
+- ⭐ Star the repo
+- 🍴 Fork it
+- 🐛 Report bugs or request features
+- 💬 Reach out with suggestions!
+
+Let's make it better together! 💡
+
+---
+
+## 💻 Requirements
+
+You need Python installed. Some versions use **pyautogui**:
 
 ```bash
 pip install pyautogui
