@@ -1,0 +1,80 @@
+import time
+import threading
+from pynput.mouse import Button, Controller
+import tkinter as tk
+
+delayTime = 0.001
+buttonDirection = Button.right
+minDelayTime = 0.001  # Minimum delay time
+
+class ClickTheMouse(threading.Thread):
+    def __init__(self, delayTime, buttonDirection):
+        super(ClickTheMouse, self).__init__()
+        self.delayTime = delayTime
+        self.buttonDirection = buttonDirection
+        self.running = False
+        self.program_running = True
+
+    def startMouseclick(self):
+        self.running = True
+
+    def stopMouseClick(self):
+        self.running = False
+
+    def exitScript(self):
+        self.stopMouseClick()
+        self.program_running = False
+
+    def run(self):
+        while self.program_running:
+            while self.running:
+                mouse.click(self.buttonDirection)
+                time.sleep(self.delayTime)
+            time.sleep(0.1)
+
+mouse = Controller()
+clickThread = ClickTheMouse(delayTime, buttonDirection)
+clickThread.start()
+
+# GUI setup
+def start_stop_clicking():
+    if clickThread.running:
+        clickThread.stopMouseClick()
+        start_stop_button.config(text="Start Clicking")
+    else:
+        clickThread.startMouseclick()
+        start_stop_button.config(text="Stop Clicking")
+
+def increase_delay():
+    global delayTime
+    delayTime += 0.001
+    delay_label.config(text=f"Delay: {delayTime:.3f} sec")
+
+def decrease_delay():
+    global delayTime
+    delayTime = max(minDelayTime, delayTime - 0.001)
+    delay_label.config(text=f"Delay: {delayTime:.3f} sec")
+
+def terminate_program():
+    clickThread.exitScript()
+    root.destroy()
+
+root = tk.Tk()
+root.title("Autoclicker")
+
+start_stop_button = tk.Button(root, text="Start Clicking", command=start_stop_clicking)
+start_stop_button.pack(pady=10)
+
+increase_button = tk.Button(root, text="Increase Delay", command=increase_delay)
+increase_button.pack(pady=5)
+
+decrease_button = tk.Button(root, text="Decrease Delay", command=decrease_delay)
+decrease_button.pack(pady=5)
+
+delay_label = tk.Label(root, text=f"Delay: {delayTime:.3f} sec")
+delay_label.pack(pady=10)
+
+terminate_button = tk.Button(root, text="Terminate", command=terminate_program)
+terminate_button.pack(pady=10)
+
+root.mainloop()
